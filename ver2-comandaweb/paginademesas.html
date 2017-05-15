@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comanda Web: Mesas </title>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8"></script>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <style>
+
+  .btn-mesa{
+        background-color: orange;
+        border: 1px solid #000;
+        border-radius: 100%;
+        color: black;
+        padding: 5px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 30px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: sans-serif;
+        position: relative;
+
+    }
+    </style>
+
+    <body>
+
+        <header class="header">
+            <div class="container">
+                <a href="index.html" class="grid-4">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <nav class="grid-12 header_menu">
+                    <ul>
+                        <li><a href="paginademesas.html">Mapa de Mesas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+
+        <section class="introducao">
+            <div class="container">
+
+            	<input id="btn-add" type="button" class="btn-int" value=" Adicionar Mesa">
+                <input id="btn-remover" type="button" class="btn-int" value="Remover Mesa">
+            </div>
+
+            <div class="container">
+                <br><br>
+                <div id="Mesas">
+                    <ul>
+                        <input type="button" class="btn-mesa" value="1">
+                        <input type="button" class="btn-mesa" value="2">
+                       	<input type="button" class="btn-mesa" value="3">
+   	                    <input type="button" class="btn-mesa" value="4">
+                        <input type="button" class="btn-mesa" value="5"></br>
+                        <input type="button" class="btn-mesa" value="6">
+                       	<input type="button" class="btn-mesa" value="7">
+   	                    <input type="button" class="btn-mesa" value="8">    
+                        <input type="button" class="btn-mesa" value="9">
+   	                    <input type="button" class="btn-mesa" value="10"> 
+            		</ul> 
+            </div>
+                	<br>
+                    <input type="button" class="btn-int" value=" Sair"> 
+                      
+           
+            </div>
+        </section>
+
+        <footer>
+        	<div class="footer">
+
+        		<div class="container">
+        			
+        		</div>
+        		
+        	</div>
+
+        <div class="copy">
+			<div class="container">
+		
+			</div>
+		</div>
+
+
+        </footer>
+    </body>
+<!-- javascripr pra adicionar botao-->
+    <script type="text/javascript">
+
+        var count = ($('.content').size() + 11);
+        $("#btn-add").click(function () {
+         
+            var btnMesa = $(document.createElement('div')).attr('class',
+            'content').attr("id", 'divRemover' + count);
+             
+            btnMesa.html('<input type="button" id="idMesa' + count + ' " value="'+ count + '" class="btn-mesa">' );
+
+            btnMesa.appendTo("#Mesas");
+             
+            count++;
+        });
+
+
+    $("#btn-remover").click(function () {
+     count--;
+     
+    $("#divRemover" + count).remove();
+     });
+
+    </script>
+    <!-- /*
+   
+
+    }
+    .R{
+        padding: 5px 12px;
+    }
+    h1{
+        text-align: center;
+        font-family: sans-serif;
+        
+    }
+    .button1{
+        background-color: orange;
+        border: none;
+        color: black;
+        padding: 5px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 50px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: sans-serif;
+        position: relative;
+        left: 35%;
+    }
+
+     .divConteudo
+     {
+     float: left;
+     padding-left: 10px;
+     padding-right: 10px;
+     }
+ .divPagina
+ {
+ text-align: center;
+ margin: 0 auto;
+ } */ -->
+</html>
