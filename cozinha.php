@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html> 
 	<?php
-		if (isset($_POST)) {
-			$qtn = $_POST['qtn'];
-		}
-		//var_dump($pedido);
-		//die;
+
+		$qtn = $_POST['qtn'];
+		//var_dump($qtn);
+		//die
+	 
 	?>
 	<head>
 		<title></title>
 
 		<head>
-        <title>Comanda Web: Mesas </title>
+        <title> Cozinha </title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -51,8 +51,8 @@
 	           		<table class="comanda">
 		           		<tr class="linha1">
 
-		           			<td class="linha2">Qnt <?php echo "$qtn"; ?> ></td>  
-
+		           			<td class="linha2">Qnt</td>  
+		           				<?php echo "Quantidade: $qtn"; ?>
 		           			<td class="linha2">Pedido</td>  
 		
 						</tr>
@@ -61,7 +61,7 @@
             </div>
             
         </section>
-        <?php echo " Quantidade: $qtn"; ?>
+   
         <footer>
         	<div class="footer">
 
