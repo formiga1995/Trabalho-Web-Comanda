@@ -2,9 +2,9 @@
 <html> 
 	<?php
 
-		$qtn = $_POST['qtn'];
-		//var_dump($qtn);
-		//die
+		$qtn = $_POST["qtn"];
+		var_dump($qtn);
+		die;
 	 
 	?>
 	<head>
