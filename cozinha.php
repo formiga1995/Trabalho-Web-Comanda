@@ -51,7 +51,7 @@
 	           		<table class="comanda">
 		           		<tr class="linha1">
 
-		           			<td class="linha2">Qnt</td>  
+		           			<td class="linha2">Qnt <?php echo "$qtn"; ?> ></td>  
 
 		           			<td class="linha2">Pedido</td>  
 		
