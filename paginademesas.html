@@ -162,14 +162,14 @@
     
 <!-- javascripr pra adicionar botao-->
   <script type="text/javascript">
-
+	var url = "https://comandateste.herokuapp.com/";
  	$('.btn-enviar').on('click',function(){
 
 		//var x = $(this).attr('form');
 
 		$.ajax({    
 
-			url: 'cozinha.php',
+			url: url + 'cozinha.php',
 			type: 'POST',            
 			data: $('#enviar').serialize(),
 
