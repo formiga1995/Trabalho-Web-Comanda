@@ -4,7 +4,6 @@
 
 		$qtn = $_POST["qtn"];
 		var_dump($qtn);
-		die;
 	 
 	?>
 	<head>
