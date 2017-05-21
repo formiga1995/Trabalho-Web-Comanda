@@ -8,27 +8,25 @@
 	 
 	?>
 	<head>
-		<title></title>
-
-		<head>
-        <title> Cozinha </title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/grid.css">
-        <link rel="stylesheet" href="css/style.css">
+		<title> Cozinha </title>
  
-        <link rel="stylesheet" href="css/cozinha.css"
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/grid.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<link rel="stylesheet" href="css/cozinha.css"
 
 
-      	<link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="javascrip" href="js/addmesa.js">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="javascrip" href="js/addmesa.js">
 
 
-    </head>
+    	</head>
 
 	<body>
 
