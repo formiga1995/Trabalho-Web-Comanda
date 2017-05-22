@@ -48,7 +48,7 @@
 	           		<table class="comanda">
 		           		<tr class="linha1">
 
-		           			<td class="linha2"><?php echo "Quantidade: $qtn"; ?> </td>  
+		           			<td class="linha2"><?php echo "Quantidade: .$qtn"; ?> </td>  
 		           				
 		           			<td class="linha2">Pedido</td>  
 		
