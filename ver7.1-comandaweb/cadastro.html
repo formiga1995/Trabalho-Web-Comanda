@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cadastro: Comanda Web
+        </title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+	    <style>
+</style>
+    <body>
+    <!-- inicializa o firebase --> 
+        <script type ="text/javascript">   
+        <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+        <script>
+  // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCOXLq-hJr8ZZqL3B9d12_jF4-cuIMkL8w",
+                authDomain: "comanda-web-c6653.firebaseapp.com",
+                databaseURL: "https://comanda-web-c6653.firebaseio.com",
+                projectId: "comanda-web-c6653",
+                storageBucket: "comanda-web-c6653.appspot.com",
+                messagingSenderId: "98701610714"
+                };
+                firebase.initializeApp(config);
+
+                $(".button").click(function handleSingUp(){
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('psw').value;
+                    if(email.length < 4){
+                        alert('Por favor, digite um e-mail.');
+                        return;
+                    }if(password.length < 4){
+                        alert('Por favor, digite uma senha.');
+                        return;
+                    }
+                });
+                
+</script>
+        <!-- cabecalho -->
+        <header class="header">
+            <div class="container">
+                <a href="index.html" class="grid-4">
+                    <img src="img/logo.png" alt="Logo">
+                </a>;
+                <nav class="grid-12 header_menu">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="login.html">Já tem um cadastro?</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section class="introducao">
+            <div class="container">
+                <ul>
+                <li><h2>Cadastro</h2></li>
+                </ul></br>
+                <form>
+                    <div>
+                        Nome:
+                        <input type="text" name="name" vale="name"></br></br>
+                        User:
+                        <input type="text" name="email" vale="user">
+                    </div>
+            </br>Tipo:
+            <input type="radio" name="tipo">Cozinha
+            <input type="radio" name="tipo">Colaborador
+            <div>
+                </br>Senha:
+                <input type="password" name="psw">
+                </div>
+        </form></br>
+        <button type="button" class="btn-int"><a href="login.html"><b>Cadastrar</b></a></button>
+        </div>
+        </section>
+        <footer>
+        	<div class="footer">
+        		<div class="container">      			
+        		</div>		
+        	</div>
+        <div class="copy">
+			<div class="container">
+			</div>
+		</div> 
+    </body>
+</html>
+
+       
