@@ -1,0 +1,20 @@
+  var config = {
+    apiKey: "AIzaSyCOXLq-hJr8ZZqL3B9d12_jF4-cuIMkL8w",
+    authDomain: "comanda-web-c6653.firebaseapp.com",
+    databaseURL: "https://comanda-web-c6653.firebaseio.com",
+    projectId: "comanda-web-c6653",
+    storageBucket: "comanda-web-c6653.appspot.com",
+    messagingSenderId: "98701610714"
+  };
+  firebase.initializeApp(config);
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+  });
+  firebase.auth().signOut().then(function () {
+      
+  },function(error) {
+      
+  });
+
+  

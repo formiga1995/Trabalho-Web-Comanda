@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+.comanda {
+    border: 1px solid;
+    width: 20%;
+    height: 500px;
+    padding: 1px;
+}
+
+.linha1 {
+    font-size: 40px;
+    text-align: left;
+    border-bottom: none;
+}
+.linha2 {
+    font-size: 15px;
+    padding: 0px;
+    text-align: left;
+    border-bottom: none;
+}
+
+.linha1:hover{background-color:#cccccc;}
+.linha1:hover{background-color:#cccccc;}
+.linha1:nth-child(even){background-color: #f2f2f2}
