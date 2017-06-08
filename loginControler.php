@@ -2,25 +2,34 @@
 	
 	include 'conecta.php';
 
-	$login=$_POST['login'];	
-  	$senha=$_POST['senha'];
+	if(empty($_POST["login"]) || empty($_POST["senha"])) {
 
-  	$consulta =	"SELECT func_id, func_nome, func_login, func_senha, tipo_tipo_id
-               	 FROM funcionario;
-               	 WHERE func_login = '$login' and func_senha = '$senha' ";  
+		echo"<script language='javascript' type='text/javascript'>alert('Preencha ambos os campos');window.location.href='login.php';</script>";
 
-    $resultado = mysql_query($consulta);
-    $executa = mysql_fetch_array($resultado);
+	} else {
 
-    if (mysql_num_rows($resultado) == 0) {
+		$login = $_POST['login'];	
+	  	$senha = $_POST['senha'];
+	  
+	  	$consulta =	"SELECT func_id, func_nome, func_login, func_senha, tipo_tipo_id
+	               	 FROM funcionario
+	               	 WHERE func_login = '$login' and func_senha = '$senha' ";  
 
-    	$result = ['result' => 0 ]
-    	echo json_encode($result);
+	    $resultado = mysqli_query($db, $consulta); 
+	    $executa = mysqli_fetch_array($resultado);
 
-    } else {
 
-    	$result = ['result' => 1 ]
-    	echo json_encode($result);
-    	
-    }      	 
+	 	if( $executa == NULL) {
+
+	    	echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.php';</script>";
+	        die();
+
+	   	} else {
+
+	    	$_SESSION['login'] = $login;
+	    	header("location: paginademesas.php");
+
+	    }
+
+	}
 ?>
