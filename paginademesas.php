@@ -4,7 +4,7 @@
         <title>Comanda Web: Mesas </title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" charset="utf-8"></script>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/reset.css">
@@ -69,11 +69,20 @@
 
             <div class="container">
                 <br><br>
-                <div id="Mesas">
+                <form name="frm-mesas" id="frm-mesas" method="POST">
+                  <div id="Mesas">
+                 
                     
-            </div>
+
+                  </div>
+
+                  <button type="submit" id="btn-salvar" class="btn-int"> Salvar </button>
+                </form>
+                    
+            
                 	<br>
                     <!--input accept="login.html" class="btn-int" value=" Sair" --> 
+                  
                     <button type="button" class="btn-int"><a href="login.html"><b>Sair</b></a></button>                           
             </div>
         </section>
@@ -208,7 +217,7 @@
   	});
   	$(document).ready(function(){
 
-	  	var count = ($('.content').size() +1);
+	  	var count = ($('.content').length +1 );
 
 	    $("#btn-add").click(function () {
 	    	
@@ -221,7 +230,7 @@
 			}
 	        var btnMesa = $(document.createElement(div)).attr('class','content').attr("id", 'divRemover' + count);
 	             
-	        btnMesa.html('<input type="button" id="idMesa' + count + ' " value="'+ count + '"class="btn-mesa" data-toggle="modal" data-target="#myModal">');
+	        btnMesa.html('<input type="text" size="1" readonly="true" id="'+ count +' " value="'+ count +'"class="btn-mesa" data-toggle="modal" data-target="#myModal">');
 
 	        btnMesa.appendTo("#Mesas");
 	             
@@ -243,7 +252,30 @@
 	     
 	    $("#divRemover" + count).remove();        //tchau botão
 	     });
-	});
+
+      $("#btn-salvar").on('click',function(){
+
+        var idMesa = $("#idMesa" + count).attr('id');
+        var nMesa = $("#idMesa" + count).attr('value');
+
+        $.ajax({
+
+          url: "mesasControler.php",
+          type: "POST",
+          data: $("#frm-mesas").serialize(),
+
+          function(data){
+            $("#Mesas").html(data);
+          }
+
+        });
+        event.preventDefault();
+	    });
+
+  
+
+
+    });
     </script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
