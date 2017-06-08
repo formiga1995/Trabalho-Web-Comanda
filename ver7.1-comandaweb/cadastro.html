@@ -13,34 +13,7 @@
 	    <style>
 </style>
     <body>
-    <!-- inicializa o firebase --> 
-        <script type ="text/javascript">   
-        <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-        <script>
-  // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyCOXLq-hJr8ZZqL3B9d12_jF4-cuIMkL8w",
-                authDomain: "comanda-web-c6653.firebaseapp.com",
-                databaseURL: "https://comanda-web-c6653.firebaseio.com",
-                projectId: "comanda-web-c6653",
-                storageBucket: "comanda-web-c6653.appspot.com",
-                messagingSenderId: "98701610714"
-                };
-                firebase.initializeApp(config);
-
-                $(".button").click(function handleSingUp(){
-                    var email = document.getElementById('email').value;
-                    var password = document.getElementById('psw').value;
-                    if(email.length < 4){
-                        alert('Por favor, digite um e-mail.');
-                        return;
-                    }if(password.length < 4){
-                        alert('Por favor, digite uma senha.');
-                        return;
-                    }
-                });
-                
-</script>
+  
         <!-- cabecalho -->
         <header class="header">
             <div class="container">
