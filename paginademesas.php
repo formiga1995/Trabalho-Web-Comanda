@@ -230,7 +230,7 @@
 			}
 	        var btnMesa = $(document.createElement(div)).attr('class','content').attr("id", 'divRemover' + count);
 	             
-	        btnMesa.html('<input type="text" size="1" readonly="true" id="'+ count +' " value="'+ count +'"class="btn-mesa" data-toggle="modal" data-target="#myModal">');
+	        btnMesa.html('<input type="text" size="1" readonly="true" name="mesa[]" id="'+ count +'" value="'+ count +'"class="btn-mesa" data-toggle="modal" data-target="#myModal">');
 
 	        btnMesa.appendTo("#Mesas");
 	             
@@ -253,25 +253,38 @@
 	    $("#divRemover" + count).remove();        //tchau botão
 	     });
 
-      $("#btn-salvar").on('click',function(){
+      $("#btn-salvar").on('click',function(event) {
 
-        var idMesa = $("#idMesa" + count).attr('id');
-        var nMesa = $("#idMesa" + count).attr('value');
+        var mesaId = new Array();
+        var mesaValue = new Array();
 
-        $.ajax({
+        $("input[name='mesa[]']").each(function(){
 
-          url: "mesasControler.php",
-          type: "POST",
-          data: $("#frm-mesas").serialize(),
-
-          function(data){
-            $("#Mesas").html(data);
-          }
+          mesaId.push($(this).attr('id'));
+          mesaValue.push($(this).attr('value'));
 
         });
-        event.preventDefault();
-	    });
 
+        var formData = {
+          'id'              : $("input[name='mesa[]']").attr('id'),   //FUNCIONA
+          'qtn'             : $("input[name='mesa[]']").attr('value'),
+        };
+
+        $.ajax({
+          type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+          url         : 'mesasControler.php', // the url where we want to POST
+          data        : {'mesaId':mesaId, 'mesaValue':mesaValue}, // our data object
+          dataType    : 'json', // what type of data do we expect back from the server
+          encode      : true
+        })
+
+        .done(function(data) {
+          console.log(data); 
+
+        })
+
+        event.preventDefault();
+      });
   
 
 
@@ -283,3 +296,4 @@
 
 	<!--script src="addmesa.js"></script>-->
 </html>
+
