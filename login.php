@@ -52,7 +52,7 @@
                         <tr>
                             <td>
                                   <br>
-                                <input type="text" id="senha" name="senha" placeholder="Senha">
+                                <input type="password" id="senha" name="senha" placeholder="Senha">
                             </td>
                         </tr>
                     </table>
@@ -79,36 +79,6 @@
 		</div> 
     </body>
 
-    <script type="text/javascript">
-
-        $('.btn-enviar').on('submit', function(){
-      
-            var login = ("#login").val();
-            var senha = ("#senha").val();
-
-            $.ajax({
-
-                url: "loginControler.php",
-                type: "POST",
-                data: ('#login-frm').serialize(),
-                sucess: function(result){
-                    alert(result);
-                    if(result == true){
-
-                        location.href='paginademesas.php';
-
-                    } else {
-
-                        alert('Algo errado');
-                    }
-                }
-
-            })
-
-            event.preventDefault();
-        });
-
-    </script>
 </html>
 
        
