@@ -4,12 +4,12 @@
         <title>
             Login: Comanda Web
         </title>
+
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/grid.css">
         <link rel="stylesheet" href="css/style.css">
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     </head>
 	    <style>
@@ -40,7 +40,7 @@
         <section class="introducao">
             <div class="container"> 
 
-                <form method="POST" name="login" id="login-frm" action="loginControler.php">
+                <form method="POST" name="login" id="login-frm" >
                  
                     <table style="margin: 0 auto;">
                         <tr>
@@ -59,7 +59,7 @@
 
                     <br><br><br>
 
-                    <button type="submit" onClick="loginControler.php" class="btn-int btn-enviar"> Acessar </button>
+                    <button type="submit" class="btn-int btn-enviar"> Acessar </button>
                 </form>
 
 
@@ -77,7 +77,43 @@
 			<div class="container">
 			</div>
 		</div> 
+        <script type="text/javascript">
+        $('.btn-enviar').on('click',function(event) {
+
+            var formData = {
+                'login'       : $("input[name=login]").val(),
+                'senha'       : $("input[name=senha]").val(),
+            };
+
+            $.ajax({
+
+                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url         : 'loginControler.php', // the url where we want to POST
+                data        : formData, // our data object
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode      : true,
+                success     : function (data) {
+                                if( data == false) {
+                                    alert('Login e/ou senha incorretos');
+                                } else if (data == true){
+                                    window.location="paginademesas.php";
+                                } else if (data == empty) {
+                                    alert('Preencha ambos os campos');
+                                }
+                                
+                            },                            
+                        
+            })
+
+            event.preventDefault();
+
+        });
+            
+
+
+        </script>
     </body>
+
 
 </html>
 
