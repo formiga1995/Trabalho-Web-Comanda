@@ -17,31 +17,25 @@
     </head>
     <style>
 
-  .btn-mesa{
+      .btn-mesa{
 
-        background-color: orange;
-        border: 1px solid #000;
-        border-radius: 90px 90px 90px 90px;
-        color: black;
-        padding: 5px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 25px;
-        margin: 4px 2px;
-        cursor: pointer;
-        font-family: sans-serif;
-        position: relative;
+            background-color: orange;
+            border: 1px solid #000;
+            border-radius: 90px 90px 90px 90px;
+            color: black;
+            padding: 5px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: sans-serif;
+            position: relative;
 
-    }
-
-  .btn-fecha {
+        }
 
 
-  }
-
-  }
-   
     </style>
 
     <body>
@@ -96,7 +90,7 @@
                               echo "<button id=\"$row[0]\" class=\"btn-delete close\"> X </button>";
                               //echo      "<div class=\"delete-mesas\" id=\"$row[0]\">";
 
-                              echo        "<input type=\"text\" size=\"1\" readonly=\"true\" name=\"mesa-default\" id=\"$row[0]\" value=\"$row[1]\" class=\"btn-mesa\" data-toggle=\"modal\" data-target=\"#myModal\">"; 
+                              echo        "<input type=\"text\" size=\"1\" readonly=\"true\" name=\"mesa-default\" id=\"$row[0]\" value=\"$row[1]\" class=\"btn-mesa\">"; 
 
                               //echo     "</div>";
                               echo    "</td>";
@@ -155,31 +149,32 @@
 		      		<div class="modal-body">
    						
            				<h4 class="modal-title" id="myModalLabel"> <center> Cadápio </center> </h4>	
-                  <h3 class="modal-title" id="valueFromMyButton"> <center> Cadápio </center> </h3>
+                  <center>
+                    <h3 class="modal-title-mesa" id="valueFromMyButton">   
+               
+                    </h3>
+                  </center> 
            				<form method="POST" action="cozinha.php" id="enviar" name="enviar"> 
 	           				<center>
 
-	           				<table   class="table1"style: margin:0 auto >
-	           					<tr class="tr1">
-	           						<td class="td2">Produto 1</td>  
+  	           				<table  class="table1" style="margin:0 auto" >
+  	           					<tr>
+  	           						<td >Produto 1</td>  
 
-	           						<td class="td2">
-	           							<button type="button" class="btn btn-default btn-minus" aria-label="Left Align">
-								  			<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-										</button>
+  	           						<td class="td2">
+  	           							<button type="button" class="btn btn-default btn-minus" aria-label="Left Align">
+  								  			   <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+  										      </button>
 
-	           							<input class="input-qtn" size ="1" maxlength="2" type="text" id="qtn" name="qtn">
+  	           							<input class="input-qtn" size ="1" maxlength="2" type="text" id="prod1-qtn" nome="Produto1">
 
-	           							<button type="button" class="btn btn-default btn-plus" aria-label="Left Align">
-								  			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-										</button>
-									</td>       						
-	           					</tr>
-	           					
-									</td>     						
-	           					</tr>
+                            <button type="button" class="btn btn-default btn-plus" aria-label="Left Align">
+                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
 
-	           				</table>
+  									      </td>       						
+  	           					</tr>
+  	                  </table>
 
 	           				</center>
            			
@@ -208,15 +203,19 @@
 <!-- javascripr pra adicionar botao-->
   <script type="text/javascript">
 
- 	$('.btn-enviar').on('click',function(){
+ 	$('.btn-enviar').on('click',function(event){
 
-		//var x = $(this).attr('form');
+		var formData = {
+          'produto'         : $('#prod1-qtn').attr('nome'),
+          'mesa'            : $('#myModal .modal-title-mesa').html(),
+          'qtn'             : $('#prod1-qtn').val(),
+        };
 
 		$.ajax({    
 
-			url: 'cozinha.php',
+			url: 'pedidosControler.php',
 			type: 'POST',            
-			data: $('#enviar').serialize(),
+			data: formData,
 
 		})
 
@@ -224,32 +223,7 @@
 		event.preventDefault();
 
 	});
-	
-	$(document).ready(function(){		 	
-  	var count = 0;
 
-  	$('.btn-plus').on('click',function() {
-  		count++;
-  		$('.input-qtn').val(count);
-  		//alert(count);
-  	});
-
-  	$('.btn-minus').on('click',function() {
-
-  		if( count > 1) {
-  			count--;	
-  		} else {
-  			count = 1;
-  		}
-  	
-  		$('.input-qtn').val(count);
-  	});
-
-  		$('.btn-reset').on('click',function(){
-  			$('.input-qtn').val('');
-
-  		});
-  	});
   	$(document).ready(function(){
 
       var m_count = <?php echo $m_count; ?>;
@@ -291,20 +265,6 @@
 	    $("#divRemover" + count).remove();        //tchau botão
 	     });
 
-      $("#btn-mesa").on('click',function(event) {
-        $("#myModal").dialog({
-                buttons :  { 
-           "MyButton" : {
-               text: "OK",
-               id: "okbtnid",
-               click: function(){
-                   var bValid = true;
-               }    
-            } 
-         }
-        });
-
-      });
       $("#btn-salvar").on('click',function(event) {
 
         //var mesaId    = new Array();
@@ -360,7 +320,44 @@
  
         }); 
   
+    }); 
+
+    $(document).ready(function(){     
+    var count = 0;
+
+    $('.btn-plus').on('click',function() {
+      count++;
+      $('.input-qtn').val(count);
+      //alert(count);
     });
+
+    $('.btn-minus').on('click',function() {
+
+      if( count > 1) {
+        count--;  
+      } else {
+        count = 1;
+      }
+    
+      $('.input-qtn').val(count);
+    });
+
+      $('.btn-reset').on('click',function(){
+        $('.input-qtn').val("");
+        count = 0;
+
+      });
+
+    $('.btn-mesa').on('click',function(){
+      $('.input-qtn').val("");
+      count = 0;
+      $('#myModal .modal-title-mesa').html('Mesa '+$(this).attr('value'));
+
+      $('#myModal').modal('show');
+    });
+
+    });
+ 
     </script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
