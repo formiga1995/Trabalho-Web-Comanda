@@ -1,24 +1,35 @@
-@charset "ISO-8859-1";
+table {
 
-.comanda {
-    border: 1px solid;
-    width: 20%;
-    height: 500px;
-    padding: 1px;
+    border: 1px solid #808080;    
+    width: 350px;
+    vertical-align:middle;
+    margin-left: 20px;
 }
 
-.linha1 {
-    font-size: 40px;
-    text-align: left;
-    border-bottom: none;
-}
-.linha2 {
-    font-size: 15px;
-    padding: 0px;
-    text-align: left;
-    border-bottom: none;
+th {
+    border-bottom: 1px solid #808080;
+    font-size: 105%;
+    padding: 7px;
+    background-color: #000000;
+    color: white; 
+    vertical-align:middle;
 }
 
-.linha1:hover{background-color:#cccccc;}
-.linha1:hover{background-color:#cccccc;}
-.linha1:nth-child(even){background-color: #f2f2f2}
+td {
+    border-bottom: 1px solid #808080;
+    padding:7px;
+    vertical-align:middle;
+}
+
+tr {
+
+    text-align: center;
+
+}
+.tr-title {
+    background: #fec63e;
+}
+
+.cmd {
+    margin-top: 10px; 
+}
