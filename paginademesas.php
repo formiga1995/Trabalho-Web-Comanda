@@ -63,6 +63,7 @@
                         <li><a href="paginademesas.html">Mapa de Mesas</a></li>
                     </ul>
                 </nav>
+
             </div>
         </header>
 
@@ -80,20 +81,20 @@
                   <form name="frm-mesas" id="frm-mesas" method="POST">
                     <table style="margin: 0 auto">
                       <tr>
-                        <div id="new-mesas">
+                        <div id="new-mesas" style="float: left">
                           <?php
                             $m_count = 1;                     
                        
                             while ($row = mysqli_fetch_array($resultado_consulta) ) {
-                            
+                              echo "<div class=\"inline\">";
                               echo    "<td>";
-                              echo "<button id=\"$row[0]\" class=\"btn-delete close\"> X </button>";
-                              //echo      "<div class=\"delete-mesas\" id=\"$row[0]\">";
 
-                              echo        "<input type=\"text\" size=\"1\" readonly=\"true\" name=\"mesa-default\" id=\"$row[0]\" value=\"$row[1]\" class=\"btn-mesa\">"; 
+                              echo      "<button id=\"$row[0]\" class=\"btn-delete close\"> X </button>";
+                              echo      "<input type=\"text\" size=\"1\" readonly=\"true\" name=\"mesa-default\" id=\"$row[0]\" value=\"$row[1]\" class=\"btn-mesa\">"; 
 
-                              //echo     "</div>";
+
                               echo    "</td>";
+                              echo "</div>";
                               $m_count ++;                       
                             }
                             
@@ -112,7 +113,7 @@
                 	<br>
                     <!--input accept="login.html" class="btn-int" value=" Sair" --> 
                   
-                    <button type="button" class="btn-int"><a href="login.html"><b>Sair</b></a></button>                           
+                    <button type="button" class="btn-int"><a href="login.php"><b>Sair</b></a></button>                           
             </div>
         </section>
 
