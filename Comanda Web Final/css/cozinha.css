@@ -1,0 +1,35 @@
+table {
+
+    border: 1px solid #808080;    
+    width: 350px;
+    vertical-align:middle;
+    margin-left: 20px;
+}
+
+th {
+    border-bottom: 1px solid #808080;
+    font-size: 105%;
+    padding: 7px;
+    background-color: #000000;
+    color: white; 
+    vertical-align:middle;
+}
+
+td {
+    border-bottom: 1px solid #808080;
+    padding:7px;
+    vertical-align:middle;
+}
+
+tr {
+
+    text-align: center;
+
+}
+.tr-title {
+    background: #fec63e;
+}
+
+.cmd {
+    margin-top: 10px; 
+}
