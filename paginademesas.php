@@ -15,28 +15,7 @@
         <link rel="javascrip" href="js/addmesa.js">
 
     </head>
-    <style>
-
-      .btn-mesa{
-
-            background-color: orange;
-            border: 1px solid #000;
-            border-radius: 90px 90px 90px 90px;
-            color: black;
-            padding: 5px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 25px;
-            margin: 4px 2px;
-            cursor: pointer;
-            font-family: sans-serif;
-            position: relative;
-
-        }
-
-
-    </style>
+    
 
     <body>
     
